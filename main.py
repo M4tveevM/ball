@@ -18,12 +18,14 @@ class Ball(Sprite):
         self.rect = pygame.Rect(x, y, 2 * radius, 2 * radius)
         self.vx = random() * randint(-5, 5) + 1
         self.vy = random() * randint(-5, 5) + 1
+
     def update(self):
         self.rect = self.rect.move(self.vx, self.vy)
         if spritecollideany(self, horizontal_borders):
             self.vy = -self.vy
         if spritecollideany(self, vertical_borders):
             self.vx = -self.vx
+
 
 class Border(Sprite):
     def __init__(self, x1, y1, x2, y2):
